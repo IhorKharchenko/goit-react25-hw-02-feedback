@@ -15,7 +15,10 @@ class Feedback extends Component {
   options = ['good', 'neutral', 'bad'];
   leaveFeedback = element => {
     const { value } = element.currentTarget;
-    this.setState(prevState => ({ [value]: prevState[value] + 1 }));
+    this.setState(prevState => ({
+      ...prevState,
+      [value]: prevState[value] + 1,
+    }));
     this.countTotalFeedback();
     this.countPositiveFeedbackPercentage();
   };
